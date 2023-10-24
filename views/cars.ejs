@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/style.css" />
+        <title>Cars</title>
+    </head>
+    <body>
+        <%- include('./includes/nav.ejs', {token : token}) -%>
+        <div class="greeting">
+            <% if(user) {%>
+            <p>Hello, <%= user.email %></p>
+            <% } %>
+        </div>
+        <div class="cars">
+            <% if(cars.length > 0){ %> <% cars.forEach((car) => { %>
+            <div class="car">
+                <h1><%= car.model %></h1>
+                <img src="<%= car.img  %>" alt="<%= car.model  %>" />
+                <h4>$<%= car.price %></h4>
+            </div>
+            <% }) %> <% }else { %>
+            <p>No car Exist</p>
+            <% } %>
+        </div>
+    </body>
+</html>
